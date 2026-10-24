@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a09">
+<meta name="description" content="دفتر ملاحظات شخصي بسيط.">
+<title>Notes — دفتر ملاحظاتي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>.notes-hero{min-height:48vh;padding:88px 7%;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:linear-gradient(90deg,#090a09ed,#090a09a8),url('assets/zero-background.png')center/cover} .notes-hero:after{content:'NOTES';position:absolute;left:3%;bottom:-28px;font:clamp(90px,20vw,230px)var(--mono);letter-spacing:-8px;color:#c4b99a0b;pointer-events:none} .notes-hero-inner{max-width:850px;position:relative;z-index:1}.notes-hero h1{font-size:clamp(43px,7vw,78px);letter-spacing:-2px;margin:0 0 20px}.notes-hero p:not(.eyebrow){max-width:680px;color:#aaa99f;font-size:14px;line-height:2.1} .notes-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.notes-meta span{border:1px solid var(--line);padding:8px 11px;color:#bdb8a8;font:9px var(--mono);letter-spacing:.8px} .notebook-layout{max-width:1120px;margin:auto;padding:68px 28px 95px;display:grid;grid-template-columns:minmax(280px,.8fr)minmax(0,1.2fr);gap:24px;align-items:start} .note-form-panel{border:1px solid #6c322e;background:linear-gradient(145deg,#151614f5,#0a0b0af5);padding:24px;position:sticky;top:100px}.note-form-panel:before{content:'';display:block;width:58px;height:2px;background:#b64039;margin-bottom:18px}.note-form-panel h2{font-size:22px;font-weight:500;margin:0 0 8px}.note-form-panel>p{font-size:12px;color:#909087;line-height:1.9;margin:0 0 20px} .note-field{display:block;margin:15px 0}.note-field span{display:block;font-size:11px;color:#b8b3a7;margin-bottom:8px}.note-field input,.note-field select,.note-field textarea{width:100%;background:#080908;color:#e8e4d7;border:1px solid #34352f;padding:12px 13px;font:12px var(--arabic);outline:none;transition:border-color .2s}.note-field input:focus,.note-field select:focus,.note-field textarea:focus{border-color:#9e3933}.note-field textarea{min-height:175px;resize:vertical;line-height:2;background-color:#0c0d0c;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 30px,rgba(176,166,139,.12)31px);background-position:0 10px} .note-form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.note-form-actions button{flex:1;justify-content:center}.notes-side-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:20px}.notes-side-head h2{font-size:25px;font-weight:500;margin:0}.notes-side-head p{font:9px var(--mono);color:#7f8077;margin:0} .note-paper-stack{display:grid;gap:17px}.paper-note{position:relative;overflow:hidden;background:#d7d0bc;color:#272720;border:1px solid #8b836e;box-shadow:0 13px 32px #0007;min-height:200px;padding:24px 26px 22px 30px;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(71,75,70,.18)32px);background-position:0 16px} .paper-note:before{content:'';position:absolute;top:0;bottom:0;right:52px;width:1px;background:rgba(157,55,48,.47)}.paper-note:after{content:'';position:absolute;right:13px;top:18px;width:11px;height:11px;border-radius:50%;background:#6a6253;box-shadow:inset 0 1px 2px #0009,0 1px 0 #f2ebd8} .paper-note.pinned{background-color:#e0d5b7}.paper-note-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px dashed #7c7667}.paper-note-tag{font:9px var(--mono);letter-spacing:1px;color:#8f302a}.paper-note-date{font:9px var(--mono);color:#777263}.paper-note h3{position:relative;z-index:1;font-size:19px;font-weight:600;margin:16px 0 10px;color:#282821}.paper-note-body{position:relative;z-index:1;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:2.35;color:#34342d;margin:0;min-height:48px}.paper-note-actions{position:relative;z-index:1;display:flex;gap:8px;justify-content:flex-start;margin-top:18px}.paper-note-actions button{border:1px solid #827966;background:#d0c5a9;color:#39372d;padding:7px 11px;font:10px var(--arabic);cursor:pointer}.paper-note-actions button:hover{background:#bfb295}.paper-note-actions .delete-note{color:#842f29;border-color:#b28f82}.empty-notes{padding:34px;border:1px dashed #494a42;text-align:center;color:#88887d;font-size:12px;line-height:2} .notes-privacy{max-width:1120px;margin:-48px auto 85px;padding:0 28px}.notes-privacy p{border-right:2px solid #9f3933;padding:13px 16px;background:#130e0d9c;color:#929187;font-size:11px;line-height:2;margin:0}.notes-privacy b{color:#d0cabb} @media(max-width:850px){.notebook-layout{grid-template-columns:1fr}.note-form-panel{position:relative;top:auto}.notes-hero{min-height:43vh}.notes-privacy{margin-top:-45px}} @media(max-width:560px){.notes-hero{padding:72px 23px}.notebook-layout{padding:44px 15px 70px}.note-form-panel{padding:18px}.paper-note{padding:21px 19px 20px 20px}.paper-note:before{right:39px}.notes-side-head{align-items:start;flex-direction:column}.notes-privacy{padding:0 15px}}</style>
+</head>
+<body class="archive-page">
+<div class="grain"></div><div class="scanlines"></div>
+<div class="side-mark left">PERSONAL<br>NOTEBOOK</div><div class="side-mark right">MY NOTES<br>PRIVATE</div>
+<header class="topbar">
+  <a class="brand" href="01-project-zero.html"><span class="brand-mark">Ø</span><span>ZERO<span class="brand-sub">PERSONAL SPACE</span></span></a>
+  <nav class="main-nav">
+    <a class="section-link" href="01-project-zero.html#brief">الملف الرئيسي</a>
+    <a class="section-link" href="01-project-zero.html#timeline">التسلسل</a>
+    <div class="nav-drop"><button class="nav-drop-toggle" type="button" aria-expanded="false">ملفات القضية <span>⌄</span></button><div class="nav-drop-menu"><a href="01-project-zero.html"><b>01 / PROJECT ZERO</b><small>بداية القضية</small></a><a href="02-phase-two.html"><b>02 / PHASE TWO</b><small>ثمن العودة</small></a><a href="03-sharpen-ending.html"><b>03 / SHARPEN ENDING</b><small>النهاية والمطاردة</small></a><a href="04-story-summary.html"><b>04 / STORY SUMMARY</b><small>ملخص القصة كاملًا</small></a><a href="05-peter-jane-return.html"><b>05 / PETER JANE</b><small>سيناريو مقفل برمز</small></a><a href="06-character-registry.html"><b>06 / CHARACTERS</b><small>الشخصيات والأدوار</small></a><a href="07-strategic-brief.html"><b>07 / STRATEGIC</b><small>الخطة والطلبات البرمجية</small></a><a href="08-notes-archive.html"><b>08 / NOTES</b><small>دفتر الملاحظات</small></a></div></div>
+  </nav>
+  <a class="nav-alert" href="01-project-zero.html"><span class="red-dot"></span> BACK TO ZERO</a>
+</header>
+<main>
+<section class="notes-hero"><div class="notes-hero-inner"><p class="eyebrow"><span class="red-dot"></span> PERSONAL NOTEBOOK</p><h1>دفتر <em>ملاحظاتي</em></h1><p>مساحة خاصة تكتب فيها أي شيء تحتاج تتذكره؛ أفكار، مواعيد، أشياء تسويها، أو كلام تحب تحتفظ فيه.</p><div class="notes-meta"><span>MY SPACE</span><span>PERSONAL NOTES</span><span>EDIT ANYTIME</span></div></div></section>
+<section class="notebook-layout">
+  <aside class="note-form-panel"><p class="eyebrow">WRITE A NOTE</p><h2 id="formHeading">ملاحظة جديدة</h2><p>اكتب اللي تبيه بأسلوبك، وتقدر تعدّل الملاحظة أو تحذفها متى احتجت.</p>
+    <form id="noteForm">
+      <label class="note-field"><span>العنوان (اختياري)</span><input id="noteTitle" maxlength="90" placeholder="عنوان الملاحظة"></label>
+      <label class="note-field"><span>الملاحظة</span><textarea id="noteBody" maxlength="4000" placeholder="اكتب هنا..." required></textarea></label>
+      <div class="note-form-actions"><button class="primary-btn" type="submit" id="saveNoteBtn">حفظ الملاحظة <span>↓</span></button><button class="ghost-btn" type="button" id="cancelEditBtn" hidden>إلغاء التعديل</button></div>
+    </form>
+  </aside>
+  <section class="notes-column"><div class="notes-side-head"><div><p class="eyebrow">MY NOTEBOOK</p><h2>ملاحظاتي</h2></div><p id="notesCount">00 NOTES</p></div><div class="note-paper-stack" id="notesStack" aria-live="polite"></div></section>
+</section>
+<div class="notes-privacy"><p><b>معلومة:</b>لن يتم حفظ الملاحظات خارج هذا المتصفح. تمم تصميمه لأرشفتها فقط</p></div>
+</main>
+<footer><div class="footer-brand">PROJECT <b>ZERO</b></div><span class="signature-tip" tabindex="0" aria-label="By Alshiekh — صاحب الفكرة المحنك">By Alshiekh<span class="signature-tooltip">صاحب الفكرة المحنك</span></span><span>دفتر ملاحظاتي الشخصي</span><a href="01-project-zero.html">العودة إلى الملف الرئيسي ↑</a></footer>
+<script>
+(() => {
+  const storageKey = 'personalNotebook_v2';
+  const form = document.getElementById('noteForm');
+  const titleInput = document.getElementById('noteTitle');
+  const bodyInput = document.getElementById('noteBody');
+  const stack = document.getElementById('notesStack');
+  const count = document.getElementById('notesCount');
+  const heading = document.getElementById('formHeading');
+  const saveButton = document.getElementById('saveNoteBtn');
+  const cancelButton = document.getElementById('cancelEditBtn');
+  let editId = null;
+  let userNotes = loadNotes();
+
+  function loadNotes() {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+  function saveNotes() {
+    try { localStorage.setItem(storageKey, JSON.stringify(userNotes)); }
+    catch { alert('ما قدرنا نحفظ الملاحظات. تأكد أن المتصفح يسمح بالحفظ.'); }
+  }
+  function safeText(tag, className, value) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    el.textContent = value;
+    return el;
+  }
+  function render() {
+    userNotes.sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
+    count.textContent = String(userNotes.length).padStart(2, '0') + ' NOTES';
+    stack.replaceChildren();
+    if (!userNotes.length) {
+      stack.append(safeText('div', 'empty-notes', 'دفترك فاضي حاليًا. اكتب أول ملاحظة لما تحتاج.'));
+      return;
+    }
+    userNotes.forEach(note => {
+      const card = safeText('article', 'paper-note', '');
+      const head = safeText('div', 'paper-note-head', '');
+      head.append(safeText('span', 'paper-note-tag', 'ملاحظة'));
+      head.append(safeText('span', 'paper-note-date', note.date || ''));
+      card.append(head);
+      if (note.title) card.append(safeText('h3', '', note.title));
+      card.append(safeText('p', 'paper-note-body', note.body || ''));
+      const actions = safeText('div', 'paper-note-actions', '');
+      const edit = safeText('button', '', 'تعديل');
+      edit.type = 'button';
+      edit.addEventListener('click', () => beginEdit(note));
+      const del = safeText('button', 'delete-note', 'حذف');
+      del.type = 'button';
+      del.addEventListener('click', () => removeNote(note.id));
+      actions.append(edit, del);
+      card.append(actions);
+      stack.append(card);
+    });
+  }
+  function beginEdit(note) {
+    editId = note.id;
+    titleInput.value = note.title || '';
+    bodyInput.value = note.body || '';
+    heading.textContent = 'تعديل الملاحظة';
+    saveButton.innerHTML = 'حفظ التعديلات <span>↓</span>';
+    cancelButton.hidden = false;
+    bodyInput.focus();
+    document.querySelector('.note-form-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function resetForm() {
+    editId = null;
+    form.reset();
+    heading.textContent = 'ملاحظة جديدة';
+    saveButton.innerHTML = 'حفظ الملاحظة <span>↓</span>';
+    cancelButton.hidden = true;
+  }
+  function removeNote(id) {
+    if (!confirm('تحذف هذه الملاحظة؟')) return;
+    userNotes = userNotes.filter(note => note.id !== id);
+    saveNotes();
+    if (editId === id) resetForm();
+    render();
+  }
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const title = titleInput.value.trim();
+    const body = bodyInput.value.trim();
+    if (!body) return;
+    const stamp = new Date().toLocaleString('ar-EG', { dateStyle: 'medium', timeStyle: 'short' });
+    const now = Date.now();
+    if (editId) {
+      userNotes = userNotes.map(note => note.id === editId ? { ...note, title, body, date: stamp, updatedAt: now } : note);
+    } else {
+      userNotes.unshift({ id: 'note-' + now + '-' + Math.random().toString(36).slice(2, 8), title, body, date: stamp, createdAt: now, updatedAt: now });
+    }
+    saveNotes();
+    resetForm();
+    render();
+  });
+  cancelButton.addEventListener('click', resetForm);
+  document.querySelectorAll('.nav-drop-toggle').forEach(button => button.addEventListener('click', () => {
+    const parent = button.closest('.nav-drop');
+    const opening = !parent.classList.contains('open');
+    document.querySelectorAll('.nav-drop.open').forEach(item => {
+      item.classList.remove('open');
+      item.querySelector('.nav-drop-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+    if (opening) {
+      parent.classList.add('open');
+      button.setAttribute('aria-expanded', 'true');
+    }
+  }));
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.nav-drop')) document.querySelectorAll('.nav-drop.open').forEach(item => {
+      item.classList.remove('open');
+      item.querySelector('.nav-drop-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
